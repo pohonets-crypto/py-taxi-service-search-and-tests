@@ -117,7 +117,7 @@ class PrivateDriverTest(TestCase):
         )
         self.client.force_login(self.user)
 
-    def test_retrieve_manufacturers(self):
+    def test_retrieve_drivers(self):
         driver_url = reverse("taxi:driver-list")
         Driver.objects.create(username="test",
                               license_number="QWE123456")
@@ -199,7 +199,7 @@ class CarSearchViewTest(TestCase):
         )
         self.client.force_login(self.user)
 
-    def test_driver_search_empty_queryset(self):
+    def test_car_search_empty_queryset(self):
         car_url = reverse("taxi:car-list")
         response = self.client.get(car_url)
         self.assertEqual(response.status_code, 200)
