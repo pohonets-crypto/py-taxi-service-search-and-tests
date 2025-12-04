@@ -147,7 +147,7 @@ class DriverSearchViewTest(TestCase):
         )
         self.client.force_login(self.user)
 
-    def test_driver_search_empty_queryset(self):
+    def test_search_with_empty_query_returns_all_drivers(self):
         driver_url = reverse("taxi:driver-list")
 
         response = self.client.get(driver_url)
@@ -199,7 +199,7 @@ class CarSearchViewTest(TestCase):
         )
         self.client.force_login(self.user)
 
-    def test_car_search_empty_queryset(self):
+    def test_search_with_empty_query_returns_all_cars(self):
         car_url = reverse("taxi:car-list")
         response = self.client.get(car_url)
         self.assertEqual(response.status_code, 200)
@@ -246,7 +246,7 @@ class ManufacturerSearchTest(TestCase):
         )
         self.client.force_login(self.user)
 
-    def test_manufacturer_search_empty_queryset(self):
+    def test_search_with_empty_query_returns_all_manufacturers(self):
         manufacturer_url = reverse("taxi:manufacturer-list")
         response = self.client.get(manufacturer_url)
         self.assertEqual(response.status_code, 200)
